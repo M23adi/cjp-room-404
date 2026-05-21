@@ -1,4 +1,4 @@
-// Room 404: CJP Edition (Desi Meme Overhaul - Infrastructure & Karma Update)
+// Room 404: CJP Edition (Desi Meme Overhaul)
 
 // --- DOM Elements ---
 const startScreen = document.getElementById('start-screen');
@@ -277,8 +277,8 @@ function initGame() {
     gameScreen.classList.remove('hidden');
     stampContainer.classList.add('hidden');
     const sceneIcon = document.getElementById('scene-icon');
-    if(sceneIcon) sceneIcon.classList.add('hidden');
-    
+    if (sceneIcon) sceneIcon.classList.add('hidden');
+
     renderScene();
 }
 
@@ -320,7 +320,7 @@ function renderScene() {
     }
 
     const sceneData = scenes[state.currentScene];
-    
+
     // Check for Win condition
     if (state.currentScene === 'win') {
         gameWin(sceneData.text);
@@ -332,23 +332,23 @@ function renderScene() {
     // Typewriter effect for text
     storyText.textContent = "";
     const sceneIcon = document.getElementById('scene-icon');
-    if(sceneData.icon) {
+    if (sceneData.icon) {
         sceneIcon.textContent = sceneData.icon;
         sceneIcon.classList.remove('hidden');
         // Add a small pop animation
         sceneIcon.style.animation = 'none';
         sceneIcon.offsetHeight; /* trigger reflow */
-        sceneIcon.style.animation = null; 
+        sceneIcon.style.animation = null;
     } else {
         sceneIcon.classList.add('hidden');
     }
 
     let i = 0;
     state.isTyping = true;
-    
+
     // Hide buttons during typing
     choiceBtns.forEach(btn => btn.classList.add('hidden'));
-    
+
     function typeWriter() {
         if (i < sceneData.text.length && state.isTyping) {
             storyText.textContent += sceneData.text.charAt(i);
@@ -360,21 +360,21 @@ function renderScene() {
         } else {
             state.isTyping = false;
             storyText.textContent = sceneData.text; // Ensure full text is there if skipped
-            
+
             // Show choices
             choiceBtns.forEach(btn => btn.classList.add('hidden')); // clear all
-            
-            if(sceneData.choices) {
+
+            if (sceneData.choices) {
                 sceneData.choices.forEach((choice, index) => {
                     if (index < 4) {
                         choiceBtns[index].textContent = choice.text;
                         choiceBtns[index].classList.remove('hidden');
-                        
+
                         // Clear old event listeners
                         const newBtn = choiceBtns[index].cloneNode(true);
                         choiceBtns[index].parentNode.replaceChild(newBtn, choiceBtns[index]);
                         choiceBtns[index] = newBtn;
-                        
+
                         // Add new event listener
                         choiceBtns[index].addEventListener('click', () => {
                             if (choice.action) choice.action();
@@ -390,7 +390,7 @@ function renderScene() {
             }
         }
     }
-    
+
     typeWriter();
 }
 
@@ -428,11 +428,11 @@ document.addEventListener('DOMContentLoaded', () => {
         skipBtn.style.backgroundColor = 'var(--box-bg)';
         skipBtn.style.color = 'var(--accent-red)';
         skipBtn.style.fontWeight = 'bold';
-        
+
         skipBtn.addEventListener('click', () => {
             if (state.isTyping) state.isTyping = false;
         });
-        
+
         header.appendChild(skipBtn);
     }
 });

@@ -2,7 +2,9 @@
 
 **"Main Bhi Cockroach!"** 🪳
 
-Welcome to the digital headquarters of the Cockroach Janta Party (CJP). What began as a satirical digital joke has morphed into this browser-based interactive fiction game that simulates the uniquely terrifying, hilarious, and exhausting experience of navigating the Indian bureaucratic system.
+**[🎮 Play the Game Live Here!](https://m23adi.github.io/cjp-room-404/)**
+
+What began as a satirical movement has morphed into this browser-based interactive fiction game that simulates the uniquely terrifying, hilarious, and exhausting experience of navigating the Indian bureaucratic system.
 
 ## 📜 The Premise
 You are a fresh graduate—a certified "cockroach" according to the establishment. You need the elusive "Final Stamp" on your paperwork so your employment allowance can finally hit your bank account *khatakhat*. But standing in your way is Room 404: The Ministry of Delays. 
@@ -34,24 +36,6 @@ If you have Node.js installed, you can use the provided `package.json` to spin u
 npx serve .
 ```
 Then open `http://localhost:3000` in your browser.
-
-## 🌐 How to Host on the Web
-
-This project is perfectly suited for free, static web hosting. Here is how you can deploy it in 2 minutes:
-
-### Vercel / Netlify
-1. Upload this folder to a GitHub repository.
-2. Log into [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/).
-3. Click "Import Project" or "Add New Site" and connect your GitHub repo.
-4. Leave the "Build Command" empty and set the "Output Directory" to the root (`./`).
-5. Click **Deploy**. Your game will be live globally!
-
-### GitHub Pages
-1. Upload this folder to a GitHub repository.
-2. Go to your repository's **Settings** tab.
-3. On the left sidebar, click **Pages**.
-4. Under "Build and deployment", select the `main` branch and `/root` folder.
-5. Click **Save**. Your site will be live at `https://[username].github.io/[repo-name]/`.
 
 ## ⚠️ Disclaimer
 This is a work of pure fiction set in the Republic of Janta. Any resemblance to real babus, leaked exams, or actual politicians is a tragic coincidence. Please don't send a bulldozer. They tried to step on us. We came back.
