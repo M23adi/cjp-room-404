@@ -13,8 +13,9 @@ Will you survive the paper leaks, the AQI 999 smog, the collapsing flyovers, and
 
 ## 🚀 Features
 - **Desi Satire**: Heavy references to real-world infrastructure failures, fake news, IT cell trolls, and political hypocrisy.
-- **Dynamic UI**: Mobile-friendly, edge-to-edge UI with "Sarkari" aesthetics, dusty paper textures, and responsive meters tracking your mental breakdown.
-- **Micro-interactions**: Emojis, custom scrolling bars, and typewriter effects to immerse you in the bureaucracy.
+- **Mobile-First Dynamic UI**: Edge-to-edge UI optimized with dynamic viewport heights (`100dvh`) for flawless scrolling on all modern mobile browsers.
+- **Sarkari Aesthetics**: Dusty paper textures, stamp animations, and responsive meters tracking your mental breakdown.
+- **Quality of Life**: Added a "Fast Forward" button to skip typewriter effects, and a "Play Again" loop for the dedicated bureaucrats.
 
 ## 🛠️ Tech Stack
 This game is built entirely with Vanilla Web Technologies. No build steps, no heavy frameworks, just pure "jugaad."
