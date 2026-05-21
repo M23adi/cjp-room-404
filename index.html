@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room 404: CJP Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ticker">
+        <marquee scrollamount="5">🪳 #MainBhiCockroach 🪳 VOICE OF THE LAZY & UNEMPLOYED 🪳 SECULAR, SOCIALIST, DEMOCRATIC, LAZY 🪳</marquee>
+    </div>
+
+    <div id="game-container">
+        
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen">
+            <h1>Cockroach<br><span class="highlight">Janta</span> Party.</h1>
+            <p class="subtitle">Room 404: The Bureaucracy Simulator</p>
+            
+            <div id="poster-container">
+                <img src="poster.png" alt="Main Bhi Cockroach Poster" id="cjp-poster">
+            </div>
+
+            <div class="disclaimer">
+                <strong>📜 SARKARI DISCLAIMER:</strong><br>
+                This is a work of pure fiction set in the Republic of Janta. Any resemblance to real babus, leaked exams, or actual politicians is a tragic coincidence. Please don't send a bulldozer. They tried to step on us. We came back.
+            </div>
+            
+            <button id="start-btn" class="cjp-btn">JOIN THE QUEUE &rarr;</button>
+        </div>
+
+        <!-- Main Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div id="header-panel">
+                <div class="meter-box">
+                    <span class="meter-label" title="Sanity">🧠 Dimag:</span>
+                    <div class="meter-bg"><div id="sanity-fill" class="meter-fill green-fill"></div></div>
+                    <span id="sanity-text" class="meter-text">100%</span>
+                </div>
+                <div class="meter-box">
+                    <span class="meter-label" title="Patience">🧘‍♂️ Sabar:</span>
+                    <div class="meter-bg"><div id="patience-fill" class="meter-fill green-fill"></div></div>
+                    <span id="patience-text" class="meter-text">100%</span>
+                </div>
+                <div class="inventory-box">
+                    <strong>📁 File Status:</strong> <span id="inventory-text">Pending...</span>
+                </div>
+            </div>
+
+            <div id="story-panel">
+                <div id="scene-icon" class="scene-icon hidden"></div>
+                <p id="story-text">Loading bureaucratic nightmare...</p>
+                <div id="stamp-container" class="hidden">
+                    <img src="stamp.png" alt="CJP Approved Stamp" id="cjp-stamp">
+                </div>
+            </div>
+
+            <div id="choices-panel">
+                <button id="choice-a" class="choice-btn cjp-btn hidden">Choice A</button>
+                <button id="choice-b" class="choice-btn cjp-btn hidden">Choice B</button>
+                <button id="choice-c" class="choice-btn cjp-btn hidden">Choice C</button>
+                <button id="choice-d" class="choice-btn cjp-btn hidden">Choice D</button>
+            </div>
+        </div>
+
+        <!-- End Screen (Loss) -->
+        <div id="end-screen" class="screen hidden">
+            <h1 id="end-title">Application Rejected</h1>
+            <p id="end-message">Your file has been lost in transit.</p>
+            <button id="restart-btn" class="cjp-btn">Submit Fresh Application</button>
+        </div>
+
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

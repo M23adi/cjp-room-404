@@ -1,0 +1,468 @@
+:root {
+    --bg-color: #E8E4D9; /* Dusty paper color */
+    --text-color: #2b2b2b; /* Typewriter black */
+    --accent-red: #C0392B; /* Government stamp red */
+    --accent-teal: #16A085; /* Sarkari file teal */
+    --box-bg: #DFD9CD; /* Slightly darker for boxes */
+    --border-color: #2b2b2b;
+}
+
+body {
+    margin: 0;
+    padding: 40px 0 0 0; /* Padding top for ticker on mobile */
+    background-color: var(--bg-color); /* Match container on mobile */
+    background-image: radial-gradient(#333 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+@media (min-width: 600px) {
+    body {
+        padding: 50px 20px 20px 20px;
+        background-color: #111;
+    }
+}
+
+#ticker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--accent-red);
+    color: #fff;
+    padding: 8px 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    z-index: 100;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: calc(100vh - 40px); /* Fill screen on mobile minus ticker */
+    background-color: var(--bg-color);
+    overflow: hidden;
+    border: none; /* No border on mobile */
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 600px) {
+    #game-container {
+        height: 85vh;
+        max-height: 800px;
+        border: 3px solid var(--border-color);
+        border-radius: 4px;
+        box-shadow: 10px 10px 0px rgba(192, 57, 43, 0.2);
+    }
+}
+
+/* Faded bureaucratic watermark overlay */
+#game-container::before {
+    content: "GOVT. OF JANTA";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.03);
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+@media (min-width: 600px) {
+    #game-container::before {
+        font-size: 8rem;
+    }
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+}
+
+@media (min-width: 600px) {
+    .screen {
+        padding: 40px;
+    }
+}
+
+#start-screen, #end-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--text-color);
+    margin: 0 0 10px 0;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+h1 .highlight {
+    color: var(--accent-red);
+}
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+.subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--accent-teal);
+    margin-bottom: 15px;
+    font-style: italic;
+    background: rgba(22, 160, 133, 0.1);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#poster-container {
+    width: 100%;
+    max-width: 180px; /* Smaller for mobile */
+    margin: 0 auto 15px auto;
+    border: 3px solid var(--border-color);
+    box-shadow: 4px 4px 0px var(--text-color);
+    background-color: #fff;
+    padding: 5px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@media (min-width: 600px) {
+    #poster-container {
+        max-width: 220px;
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+#cjp-poster {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.disclaimer {
+    background-color: var(--box-bg);
+    border-left: 4px solid var(--accent-red);
+    padding: 10px;
+    max-width: 100%;
+    text-align: left;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+@media (min-width: 600px) {
+    .disclaimer {
+        padding: 15px;
+        max-width: 80%;
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+}
+
+.disclaimer strong {
+    color: var(--accent-red);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+}
+
+.cjp-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    background-color: var(--accent-red);
+    color: #fff;
+    border: 2px solid var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 4px 4px 0px var(--text-color);
+    text-transform: uppercase;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .cjp-btn {
+        width: auto;
+        font-size: 1.1rem;
+        padding: 12px 24px;
+    }
+}
+
+.cjp-btn:hover {
+    background-color: #A93226;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-color);
+}
+
+.cjp-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text-color);
+}
+
+#start-btn {
+    animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+    0% { box-shadow: 4px 4px 0px var(--text-color); }
+    50% { box-shadow: 4px 4px 0px var(--accent-teal); }
+    100% { box-shadow: 4px 4px 0px var(--text-color); }
+}
+
+/* --- Game Screen Layout --- */
+
+#game-screen {
+    justify-content: flex-start;
+}
+
+#header-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem; /* Smaller for mobile */
+}
+
+@media (min-width: 600px) {
+    #header-panel {
+        font-size: 0.9rem;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+.meter-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 48%; /* Side by side on mobile */
+}
+
+@media (min-width: 600px) {
+    .meter-box {
+        gap: 10px;
+        width: auto;
+    }
+}
+
+.meter-bg {
+    flex-grow: 1;
+    height: 10px; /* Thinner on mobile */
+    width: 100%; /* Prevents collapsing in flex containers */
+    background-color: var(--box-bg);
+    border: 2px solid var(--border-color);
+    max-width: 100px;
+}
+
+@media (min-width: 600px) {
+    .meter-bg {
+        height: 12px;
+        max-width: 120px;
+    }
+}
+
+.meter-fill {
+    height: 100%;
+    width: 100%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.green-fill { background-color: var(--accent-teal); }
+.orange-fill { background-color: #F39C12; }
+.red-fill { background-color: var(--accent-red); }
+
+.inventory-box {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 6px 10px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+}
+
+@media (min-width: 600px) {
+    .inventory-box {
+        width: auto;
+        text-align: left;
+        font-size: 0.85rem;
+    }
+}
+
+#story-panel {
+    flex-grow: 1;
+    background-color: var(--box-bg);
+    border: 2px solid var(--border-color);
+    padding: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; /* Readable on mobile */
+    line-height: 1.4;
+    overflow-y: auto;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    white-space: pre-wrap;
+    position: relative;
+}
+
+@media (min-width: 600px) {
+    #story-panel {
+        padding: 25px;
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+}
+
+/* Custom Scrollbar for Story Panel */
+#story-panel::-webkit-scrollbar {
+    width: 8px;
+}
+#story-panel::-webkit-scrollbar-track {
+    background: var(--box-bg);
+    border-left: 1px solid var(--border-color);
+}
+#story-panel::-webkit-scrollbar-thumb {
+    background: var(--accent-teal);
+    border: 1px solid var(--border-color);
+}
+#story-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color);
+}
+
+.scene-icon {
+    font-size: 2.5rem; /* Smaller on mobile */
+    text-align: center;
+    margin-bottom: 10px;
+    animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: scale(0);
+}
+
+@media (min-width: 600px) {
+    .scene-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+#stamp-container {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 100px; /* Smaller on mobile */
+    transform: rotate(-15deg);
+    opacity: 0;
+    animation: stamp-anim 0.5s forwards ease-in;
+}
+
+@media (min-width: 600px) {
+    #stamp-container {
+        width: 150px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@keyframes stamp-anim {
+    0% { transform: scale(3) rotate(-15deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1) rotate(-15deg); opacity: 0.9; }
+}
+
+#cjp-stamp {
+    width: 100%;
+    height: auto;
+}
+
+#choices-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+@media (min-width: 600px) {
+    #choices-panel {
+        gap: 12px;
+        margin-top: 20px;
+    }
+}
+
+.choice-btn {
+    text-align: left;
+    padding: 10px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem; /* Smaller on mobile */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    box-shadow: 3px 3px 0px var(--text-color);
+    text-transform: none;
+    font-weight: 600;
+}
+
+.choice-btn:hover {
+    background-color: #D5CEC1;
+    color: var(--text-color);
+}
+
+.choice-btn:active {
+    box-shadow: 0px 0px 0px var(--text-color);
+}
+
+@media (min-width: 600px) {
+    .choice-btn {
+        padding: 15px;
+        font-size: 1.05rem;
+    }
+}

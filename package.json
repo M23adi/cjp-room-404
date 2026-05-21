@@ -1,0 +1,17 @@
+{
+  "name": "cjp-room-404",
+  "version": "1.0.0",
+  "description": "Room 404: The Bureaucracy Simulator - A satirical text adventure",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "game",
+    "satire",
+    "html",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}
